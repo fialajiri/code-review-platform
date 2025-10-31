@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.7">
+  <diagram name="Stránka-1" id="4Q2MC-Tlewc835Q87FAe">
+    <mxGraphModel dx="2066" dy="1126" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-DSwx3Ya1SlvjkiMZfQx-1" target="-DSwx3Ya1SlvjkiMZfQx-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-1" value="React Frontend&lt;div&gt;(Vite)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-2" value="Code Review Platform" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="10" width="270" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-DSwx3Ya1SlvjkiMZfQx-6" target="-DSwx3Ya1SlvjkiMZfQx-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-6" value="Express Gateway" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-7" value="(Api Gateway, Auth, WebSocker server)" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="480" y="255" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-8" value="(TanStack Query for real-time updates)" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="475" y="135" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-DSwx3Ya1SlvjkiMZfQx-10" target="-DSwx3Ya1SlvjkiMZfQx-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-10" value="RabbitMQ&lt;div style=&quot;text-align: left;&quot;&gt;- review_queue&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- test_queui&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- results_queu&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="350" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-11" value="(Job queues, Event bus)" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="440" y="380" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-13" value="FastAPI&lt;div&gt;Workers&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-15" value="AI Agents, Code Analysis" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="520" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-16" value="Postgre" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="150" y="380" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-DSwx3Ya1SlvjkiMZfQx-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="-DSwx3Ya1SlvjkiMZfQx-10" target="-DSwx3Ya1SlvjkiMZfQx-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
