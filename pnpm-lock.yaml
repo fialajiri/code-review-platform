@@ -20,6 +20,9 @@ importers:
 
   apps/frontend:
     dependencies:
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -78,6 +81,9 @@ importers:
 
   apps/gateway:
     dependencies:
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       dotenv:
         specifier: ^16.4.7
         version: 16.6.1
@@ -103,6 +109,8 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
+
+  apps/workers: {}
 
   packages/eslint-config:
     devDependencies:
@@ -139,6 +147,24 @@ importers:
       typescript-eslint:
         specifier: ^8.40.0
         version: 8.40.0(eslint@9.34.0)(typescript@5.9.2)
+
+  packages/shared:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^24.6.0
+        version: 24.9.2
+      eslint:
+        specifier: ^9.34.0
+        version: 9.38.0
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
 
   packages/typescript-config: {}
 
