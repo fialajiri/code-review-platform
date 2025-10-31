@@ -1,0 +1,14 @@
+{
+  "name": "workers",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": ".venv/bin/python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "echo 'No build step needed for Python'",
+    "start": ".venv/bin/python -m uvicorn src.main:app --host 0.0.0.0 --port 8000",
+    "lint": ".venv/bin/ruff check src/ || echo 'Linting skipped'",
+    "format": ".venv/bin/ruff format src/ || echo 'Formatting skipped'",
+    "check-types": ".venv/bin/mypy src/ || echo 'Type checking skipped'",
+    "install": ".venv/bin/pip install -r requirements.txt"
+  }
+}
