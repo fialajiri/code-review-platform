@@ -1,8 +1,6 @@
-/** @format */
-
-import express from 'express';
-import dotenv from 'dotenv';
-import { corsMiddleware } from './middleware/cors.js';
+import express from "express";
+import dotenv from "dotenv";
+import { corsMiddleware } from "./middleware/cors.js";
 
 // Load environment variables
 dotenv.config();
@@ -15,13 +13,13 @@ app.use(corsMiddleware());
 app.use(express.json());
 
 // Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'gateway' });
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", service: "gateway" });
 });
 
 // Basic API route
-app.get('/api/v1', (req, res) => {
-  res.json({ message: 'Gateway API v1' });
+app.get("/api/v1", (req, res) => {
+  res.json({ message: "Gateway API v1" });
 });
 
 // Start server

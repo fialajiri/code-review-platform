@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String        @id @default(uuid())
+  githubId          String        @unique @map(github_id)
+  username          String      
+  email             String        @unique
+  accessToken       String        @map(access_token)
+  repositories      Repository[]
+  createdAt         DateTime      @default(now()) @map(created_at)
+  updatedAt         DateTime      @updatedAt @map(updated_at)
+}
+
+model Repositoty {
+  id                String        @id @default(uuid())
+  userId            String        @map(user_id)
+  user              User          @relation(fields: [userId], references: [id])
+  githubRepoId      BigInt        @map(github_repo_id)
+  fullName          String        @map(full_name)
+  webhookId         BigInt?       @map(webhook_id)
+  isActive          Boolean       @default(true) @map(is_active)
+  pullRequests      PullRequest[] 
+  createdAt         DateTime      @default(now()) @map(created_at)
+  updatedAt         DateTime      @updatedAt @map(updated_at)
+}
+
+
+model PullRequest {
+  id                String        @id @default(uuid())
+  repositoryId      String        @map(repository_id)
+  repository        Repository    @relations(fields: [repositoryId], references: [id])
+  prNumber          Int           @map(pr_number)
+  title             String    
+  author            String
+  branch            String
+  status            String        @default("pending")
+  reviews           Review[]
+  createdAt         DateTime      @default(now()) @map(created_at)
+  completedAt       DateTime?     @map(completed_at)
+  updatedAt         DateTime      @updatedAt @map(updated_at)
+}
+
+model Review {
+  id                String        @id @default(uuid())
+  prId              String        @map(pr_id)
+  pullRequest       PullRequest   @relation(fields: [prId], references: [id])
+  reviewType        String        @map(review_type)
+  agentName         String        @map(agent_name)
+  status            String        @default("pending")
+  findings          JSON
+  summary           String?
+  score             Int?
+  processingTimeMs  Int?          @map(prosessing_time_ms)
+  comments          ReviewComment[]
+  agentsLogs        AgentLog[]
+  createdAt         DateTime      @default(now()) @map(created_at)
+  updatedAt         DateTime      @updatedAt  @map(updated_at)
+
+  @@index([prId])
+  @@index([status])
+}
+
+model ReviewComment {
+  id                String        @id @default(uuid())
+  reviewId          String        @map(review_id)
+  review            Review        @relation(fields: [reviewId], references: [id])
+  filePath          String
+  lineNumber        Int?          @map(line_number)
+  comment           String
+  severenity        String
+  category          String
+  suggestion        String?
+  postedToGithub    Boolean       @default(false) @map(posted_to_github)
+  githubCommentId   BigInt?       @map(github_comment_id)
+  createdAt         DateTime      @default(now()) @map(created_at)
+
+  @@index([reviewId])   
+}
+
+model AgentLog {
+  id                String        @id @default(uuid())
+  reviewId          String        @map(review_id)
+  review            Review        @relation(fields: [reviewId], references: [id])
+  agentName         String        @map(agent_name)
+  action            String
+  inputTokens       Int?          @map(input_tokens)
+  outputTokens      Int?          @map(output_tokens)
+  costUsd           Decimal?      @db.Decimal(10, 0) @map(cost_usd)
+  durationMs        Int?          @map(duration_ms) 
+  timestamp         DateTime      @default(now())
+
+  @@index([reviewId])
+  @@index([agentName])
+  
+}
